@@ -17,10 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         initIQKeyboardManager();
-        
+        initKeyWindow();
         
         return true
     }
+    
+    func initKeyWindow() {
+        self.window = UIWindow.init(frame: UIScreen.main.bounds);
+        self.window?.backgroundColor = UICOLOR_FROM_HEX(hex: 0xfefefe);
+        let login = LoginViewController();
+        let tab = BaseTabBarViewController();
+        self.window?.rootViewController = tab;
+        self.window?.makeKeyAndVisible();
+        
+    }
+    
+    
     func initIQKeyboardManager() {
         let manager = IQKeyboardManager.shared;
         manager.enable = true;
