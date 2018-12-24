@@ -9,8 +9,23 @@
 import Foundation
 import UIKit
 
-
-
+@_exported import SnapKit
+@_exported import ReactiveCocoa
+@_exported import ReactiveSwift
+@_exported import KRProgressHUD
+@_exported import KRProgressHUD
+@_exported import Alamofire
+@_exported import HandyJSON
+//注册地址
+let REGISTER_PATH = "http://yiyuanyan.eicp.net:81/reg/"
+//登录地址
+let LOGIN_PATH="http://yiyuanyan.eicp.net:81/login/"
+//更新Tokend
+let UPDATE_TOKEN="http://yiyuanyan.eicp.net:81/token/"
+//BaseUrl
+let BASE_URL="http://yiyuanyan.eicp.net:81/"
+//DETAILED Url
+let DETAILET_URL = BASE_URL + "detailed/"
 
 
 func IsStrEmpty(str:String) -> Bool {
@@ -23,14 +38,14 @@ func IsStrEmpty(str:String) -> Bool {
  @abstract 获取本机屏幕的宽度.   考虑到横屏的宽高比
  */
 func SCREEN_HEIGHT()->CGFloat{
-    return (UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width) ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width;
+    return UIScreen.main.bounds.size.height;
     
 }
 /**
  @abstract 获取本机屏幕的高度.   考虑到横屏的宽高比
  **/
 func SCREEN_WIDTH() -> CGFloat {
-    return (UIScreen.main.bounds.size.height > UIScreen.main.bounds.size.width) ? UIScreen.main.bounds.size.height : UIScreen.main.bounds.size.width;
+    return UIScreen.main.bounds.size.width;
 }
 /**
  @abstract 判断本机是否为iPhone6
@@ -102,4 +117,48 @@ func UICOLOR_FROM_RGB(r:CGFloat, g:CGFloat, b:CGFloat)->UIColor {
 }
 func UICOLOR_RANDOM_COLOR()->UIColor {
     return UICOLOR_FROM_RGB(r: CGFloat(arc4random_uniform(255)), g: CGFloat(arc4random_uniform(255)), b: CGFloat(arc4random_uniform(255)));
+}
+
+func isTelNumber(num:NSString)->Bool
+    
+{
+    
+    let mobile = "^1((3[0-9]|4[57]|5[0-35-9]|7[0678]|8[0-9])\\d{8}$)"
+    
+    let  CM = "(^1(3[4-9]|4[7]|5[0-27-9]|7[8]|8[2-478])\\d{8}$)|(^1705\\d{7}$)";
+    
+    let  CU = "(^1(3[0-2]|4[5]|5[56]|7[6]|8[56])\\d{8}$)|(^1709\\d{7}$)";
+    
+    let  CT = "(^1(33|53|77|8[019])\\d{8}$)|(^1700\\d{7}$)";
+    
+    let regextestmobile = NSPredicate(format: "SELF MATCHES %@",mobile)
+    
+    let regextestcm = NSPredicate(format: "SELF MATCHES %@",CM )
+    
+    let regextestcu = NSPredicate(format: "SELF MATCHES %@" ,CU)
+    
+    let regextestct = NSPredicate(format: "SELF MATCHES %@" ,CT)
+    
+    if ((regextestmobile.evaluate(with: num) == true)
+        
+        || (regextestcm.evaluate(with: num)  == true)
+        
+        || (regextestct.evaluate(with: num) == true)
+        
+        || (regextestcu.evaluate(with: num) == true))
+        
+    {
+        
+        return true
+        
+    }
+        
+    else
+        
+    {
+        
+        return false
+        
+    }
+    
 }

@@ -10,7 +10,7 @@ target 'simple-bill-swift' do
   pod 'ReactiveCocoa', '~> 8.0'
   pod 'SDWebImage'
   pod 'IQKeyboardManagerSwift'
-
+  pod 'HandyJSON'
   # Pods for simple-bill-swift
 
   target 'simple-bill-swiftTests' do

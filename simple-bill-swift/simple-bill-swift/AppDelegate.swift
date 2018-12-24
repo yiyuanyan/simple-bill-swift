@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UICOLOR_FROM_HEX(hex: 0xfefefe);
         let login = LoginViewController();
         let tab = BaseTabBarViewController();
-        self.window?.rootViewController = tab;
+        self.window?.rootViewController = login;
         self.window?.makeKeyAndVisible();
         
     }

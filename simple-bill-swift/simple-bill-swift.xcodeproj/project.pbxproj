@@ -25,6 +25,8 @@
 		35A3C5DC21CE0ED900BCAA04 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5DB21CE0ED900BCAA04 /* MyViewController.swift */; };
 		35A3C5E021CE11F800BCAA04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */; };
 		35A3C5E221CE13C200BCAA04 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5E121CE13C200BCAA04 /* BaseTabBarViewController.swift */; };
+		35D8B0BD21D079760050AD84 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0BC21D079760050AD84 /* LoginView.swift */; };
+		35D8B0BF21D079850050AD84 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0BE21D079850050AD84 /* LoginModel.swift */; };
 		4CA04F4880965C45F4D2F4BB /* Pods_simple_bill_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2EF742C685B4A0D6433C04B /* Pods_simple_bill_swift.framework */; };
 		7197E19C6E7A8888F45E2D7B /* Pods_simple_bill_swiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D68D795463FC4C5F299D3DFE /* Pods_simple_bill_swiftTests.framework */; };
 		C5BF168346DFA48F6CD6B0EB /* Pods_simple_bill_swiftUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB6BA093DDE90D51AA6264B /* Pods_simple_bill_swiftUITests.framework */; };
@@ -74,6 +76,8 @@
 		35A3C5DB21CE0ED900BCAA04 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		35A3C5E121CE13C200BCAA04 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		35D8B0BC21D079760050AD84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		35D8B0BE21D079850050AD84 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		4389C9FEA3A5D3C622E3D48D /* Pods-simple-bill-swiftUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swiftUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swiftUITests/Pods-simple-bill-swiftUITests.release.xcconfig"; sourceTree = "<group>"; };
 		68CDBA9E0F9BFA23814BFD27 /* Pods-simple-bill-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swift.release.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swift/Pods-simple-bill-swift.release.xcconfig"; sourceTree = "<group>"; };
 		6FB6BA093DDE90D51AA6264B /* Pods_simple_bill_swiftUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simple_bill_swiftUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,8 @@
 		35A3C5DD21CE11EC00BCAA04 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				35D8B0BB21D079640050AD84 /* Model */,
+				35D8B0BA21D079640050AD84 /* View */,
 				35A3C5DE21CE11EC00BCAA04 /* Controller */,
 			);
 			path = Login;
@@ -277,6 +283,22 @@
 				35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		35D8B0BA21D079640050AD84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				35D8B0BC21D079760050AD84 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		35D8B0BB21D079640050AD84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				35D8B0BE21D079850050AD84 /* LoginModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		43B650FAB91B3525ECD38D51 /* Frameworks */ = {
@@ -465,6 +487,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-simple-bill-swift/Pods-simple-bill-swift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
@@ -479,6 +502,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
@@ -552,7 +576,9 @@
 				354D99B221CCC91D000C04D7 /* AppInformation.swift in Sources */,
 				35A3C5DC21CE0ED900BCAA04 /* MyViewController.swift in Sources */,
 				35A3C5D821CE0E9A00BCAA04 /* DetailedViewController.swift in Sources */,
+				35D8B0BD21D079760050AD84 /* LoginView.swift in Sources */,
 				35A3C5E221CE13C200BCAA04 /* BaseTabBarViewController.swift in Sources */,
+				35D8B0BF21D079850050AD84 /* LoginModel.swift in Sources */,
 				35A3C5D621CE0E9100BCAA04 /* ChartViewController.swift in Sources */,
 				35940F5921CE632B005B1D23 /* BaseTopView.swift in Sources */,
 				35A3C5D421CE0E7F00BCAA04 /* AccountsViewController.swift in Sources */,

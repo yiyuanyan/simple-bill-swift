@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SnapKit
+
 class BaseViewController: UIViewController {
     var topView = BaseTopView();
     override func viewDidLoad() {
