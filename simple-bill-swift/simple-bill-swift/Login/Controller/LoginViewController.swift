@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     var loginView = LoginView(frame: CGRect.init());
-    
+    var model = LoginModel();
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UICOLOR_RANDOM_COLOR();
@@ -34,20 +34,37 @@ class LoginViewController: UIViewController {
     func httpTool(){
         
         let url = LOGIN_PATH + self.loginView.phoneTextField.text! + "/" + self.loginView.pwdTextField.text!;
-        Alamofire.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default)
-            .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { (response) in
+            
+            if response.result.isSuccess {
+                print(response);
+                if let jsonString = response.result.value {
+                    
+                    /// json转model
+                    /// 写法一：responseModel.deserialize(from: jsonString)
+                    let model = LoginModel.deserialize(from: jsonString)
+                    if(model?.status == 1){
+                        self.sysUserDefault(model: model!);
+                    }else{
+                        KRProgressHUD.showMessage((model?.msg)!);
+                    }
+                }
             }
-            .validate { request, response, data in
-                // Custom evaluation closure now includes data (allows you to parse data to dig out error messages if necessary)
-                
-                return .success
-            }
-            .responseJSON { response in
-                //debugPrint();
-                
-                
         }
+
+        
+    }
+    
+    func sysUserDefault(model:LoginModel) -> Void {
+        let defaultStand = UserDefaults.standard;
+        defaultStand.set(model.data!["u_id"], forKey: UserDefaultKeys.AccountInfo().uid);
+        defaultStand.set(model.data!["user_phone"], forKey: UserDefaultKeys.AccountInfo().userPhone);
+        defaultStand.set(model.data!["user_pwd"], forKey: UserDefaultKeys.AccountInfo().userPwd);
+        defaultStand.set(model.data!["user_nickname"], forKey: UserDefaultKeys.AccountInfo().userNickName);
+        defaultStand.set(model.data!["user_token"], forKey: UserDefaultKeys.LoginInfo().userToken);
+        defaultStand.set(model.data!["token_time_out"], forKey: UserDefaultKeys.LoginInfo().userTokenTimeOut);
+        //self.view.window?.rootViewController = DetailedViewController();
+        self.present(DetailedViewController(), animated: true, completion: nil);
         
     }
     /*

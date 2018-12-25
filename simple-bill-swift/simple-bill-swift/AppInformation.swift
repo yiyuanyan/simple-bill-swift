@@ -16,6 +16,7 @@ import UIKit
 @_exported import KRProgressHUD
 @_exported import Alamofire
 @_exported import HandyJSON
+
 //注册地址
 let REGISTER_PATH = "http://yiyuanyan.eicp.net:81/reg/"
 //登录地址
