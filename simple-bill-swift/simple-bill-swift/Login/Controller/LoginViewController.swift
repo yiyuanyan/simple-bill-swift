@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
+import SwiftyRSA
 class LoginViewController: UIViewController {
+    
     var loginView = LoginView(frame: CGRect.init());
     var model = LoginModel();
     override func viewDidLoad() {
@@ -33,21 +34,28 @@ class LoginViewController: UIViewController {
     }
     func httpTool(){
         
-        let url = LOGIN_PATH + self.loginView.phoneTextField.text! + "/" + self.loginView.pwdTextField.text!;
+        //let url = LOGIN_PATH + self.loginView.phoneTextField.text! + "/" + self.loginView.pwdTextField.text!;
+        let url = LOGIN_PATH + "18600562546" + "/" + "111111";
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { (response) in
             
             if response.result.isSuccess {
-                print(response);
-                if let jsonString = response.result.value {
-                    
-                    /// json转model
-                    /// 写法一：responseModel.deserialize(from: jsonString)
-                    let model = LoginModel.deserialize(from: jsonString)
-                    if(model?.status == 1){
-                        self.sysUserDefault(model: model!);
+                
+                if let RSAString = response.result.value {
+                    //进行RSA解密.解密后是json字符串
+                    let jsonString = RSADecrypt(string: RSAString);
+                    if(!IsStrEmpty(str: jsonString)){
+                        /// json转model
+                        /// 写法一：responseModel.deserialize(from: jsonString)
+                        let model = LoginModel.deserialize(from: jsonString)
+                        if(model?.status == 1){
+                            self.sysUserDefault(model: model!);
+                        }else{
+                            KRProgressHUD.showMessage((model?.msg)!);
+                        }
                     }else{
-                        KRProgressHUD.showMessage((model?.msg)!);
+                        KRProgressHUD.showMessage("数据错误");
                     }
+                    
                 }
             }
         }

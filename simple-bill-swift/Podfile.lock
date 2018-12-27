@@ -14,6 +14,9 @@ PODS:
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
   - SnapKit (4.0.1)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -23,6 +26,7 @@ DEPENDENCIES:
   - ReactiveCocoa (~> 8.0)
   - SDWebImage
   - SnapKit (~> 4.0.0)
+  - SwiftyRSA
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -36,6 +40,7 @@ SPEC REPOS:
     - Result
     - SDWebImage
     - SnapKit
+    - SwiftyRSA
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
@@ -48,7 +53,8 @@ SPEC CHECKSUMS:
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 34a2a799f4519cb7e2ff53a70efcefba2fb0d3e4
+PODFILE CHECKSUM: 367484a98b18f6545eb1e551651ef60cf8d610f8
 
 COCOAPODS: 1.5.3

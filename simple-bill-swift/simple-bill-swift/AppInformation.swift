@@ -16,6 +16,8 @@ import UIKit
 @_exported import KRProgressHUD
 @_exported import Alamofire
 @_exported import HandyJSON
+@_exported import SwiftyRSA
+
 
 //注册地址
 let REGISTER_PATH = "http://yiyuanyan.eicp.net:81/reg/"
@@ -162,4 +164,42 @@ func isTelNumber(num:NSString)->Bool
         
     }
     
+}
+
+//验证登录
+func isLogin()-> Bool {
+    let defaultUser = UserDefaults.standard;
+    let userPhone = defaultUser.string(forKey: UserDefaultKeys.AccountInfo().userPhone);
+    let userPwd = defaultUser.string(forKey: UserDefaultKeys.AccountInfo().userPwd);
+    let userId = defaultUser.integer(forKey: UserDefaultKeys.AccountInfo().uid);
+    let userToken = defaultUser.string(forKey: UserDefaultKeys.LoginInfo().userToken);
+    if(IsStrEmpty(str: userToken!) && IsStrEmpty(str: userPwd!) && IsStrEmpty(str: userPhone!) && userId > 0){
+        
+    }else{
+        return false;
+    }
+    return false;
+}
+
+//RSA公钥解密
+func RSADecrypt(string:String) -> String{
+    let keyPath = NSHomeDirectory() + "/Documents/" + "rsa_private_key.pem";
+    var plaintext:String!;
+    
+    let url = URL(fileURLWithPath: keyPath);
+    do{
+        //let dataKey = try Data(contentsOf: url);
+        let str = try String(contentsOf: url);
+        
+        let pKey = try PrivateKey(pemEncoded: str);
+        let encrypted = try EncryptedMessage(base64Encoded: string);
+        let clear = try encrypted.decrypted(with: pKey, padding: .PKCS1);
+        plaintext = try clear.string(encoding: .utf8)
+        
+        print(plaintext);
+    }catch let error{
+        print(error);
+        return "";
+    }
+    return plaintext;
 }

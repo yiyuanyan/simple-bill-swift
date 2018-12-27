@@ -11,6 +11,7 @@ target 'simple-bill-swift' do
   pod 'SDWebImage'
   pod 'IQKeyboardManagerSwift'
   pod 'HandyJSON'
+  pod 'SwiftyRSA'
   # Pods for simple-bill-swift
 
   target 'simple-bill-swiftTests' do

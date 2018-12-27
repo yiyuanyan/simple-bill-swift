@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3516BE0121D4840B002B35DD /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3516BE0021D4840B002B35DD /* rsa_public_key.pem */; };
 		354D99B221CCC91D000C04D7 /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99B121CCC91D000C04D7 /* AppInformation.swift */; };
 		354D99C721CCE68E000C04D7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99C621CCE68E000C04D7 /* BaseViewController.swift */; };
 		354D99C921CCE6AB000C04D7 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99C821CCE6AB000C04D7 /* BaseNavigationController.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0553479EE484375181357744 /* Pods-simple-bill-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swiftTests/Pods-simple-bill-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		0D6993D084C87BC3853AE435 /* Pods-simple-bill-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swiftTests/Pods-simple-bill-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3516BE0021D4840B002B35DD /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
 		354D99B121CCC91D000C04D7 /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		354D99C621CCE68E000C04D7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		354D99C821CCE6AB000C04D7 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		35536B0F21C9E3AE00AEB7D5 /* simple-bill-swift */ = {
 			isa = PBXGroup;
 			children = (
+				3516BE0021D4840B002B35DD /* rsa_public_key.pem */,
 				35A3C5DD21CE11EC00BCAA04 /* Login */,
 				35A3C5C921CE0E6300BCAA04 /* Accounts */,
 				35A3C5CD21CE0E6400BCAA04 /* Chart */,
@@ -437,6 +440,7 @@
 			files = (
 				35536B1B21C9E3B000AEB7D5 /* LaunchScreen.storyboard in Resources */,
 				35536B1821C9E3B000AEB7D5 /* Assets.xcassets in Resources */,
+				3516BE0121D4840B002B35DD /* rsa_public_key.pem in Resources */,
 				35536B1621C9E3AE00AEB7D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +503,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -514,6 +519,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
