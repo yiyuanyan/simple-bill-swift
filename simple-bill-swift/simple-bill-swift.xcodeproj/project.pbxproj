@@ -26,6 +26,7 @@
 		35A3C5DC21CE0ED900BCAA04 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5DB21CE0ED900BCAA04 /* MyViewController.swift */; };
 		35A3C5E021CE11F800BCAA04 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */; };
 		35A3C5E221CE13C200BCAA04 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A3C5E121CE13C200BCAA04 /* BaseTabBarViewController.swift */; };
+		35C7535321D7C6AE00EFD4A6 /* rsa_private_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 35C7535221D7C6AE00EFD4A6 /* rsa_private_key.pem */; };
 		35D8B0BD21D079760050AD84 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0BC21D079760050AD84 /* LoginView.swift */; };
 		35D8B0BF21D079850050AD84 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D8B0BE21D079850050AD84 /* LoginModel.swift */; };
 		35E6DC2F21D21A88007082FE /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E6DC2E21D21A88007082FE /* Config.swift */; };
@@ -79,6 +80,7 @@
 		35A3C5DB21CE0ED900BCAA04 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		35A3C5E121CE13C200BCAA04 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		35C7535221D7C6AE00EFD4A6 /* rsa_private_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_private_key.pem; sourceTree = "<group>"; };
 		35D8B0BC21D079760050AD84 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		35D8B0BE21D079850050AD84 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		35E6DC2E21D21A88007082FE /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 		35536B0F21C9E3AE00AEB7D5 /* simple-bill-swift */ = {
 			isa = PBXGroup;
 			children = (
-				3516BE0021D4840B002B35DD /* rsa_public_key.pem */,
+				35C7535121D7C6A500EFD4A6 /* RSA */,
 				35A3C5DD21CE11EC00BCAA04 /* Login */,
 				35A3C5C921CE0E6300BCAA04 /* Accounts */,
 				35A3C5CD21CE0E6400BCAA04 /* Chart */,
@@ -289,6 +291,15 @@
 				35A3C5DF21CE11F800BCAA04 /* LoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		35C7535121D7C6A500EFD4A6 /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				3516BE0021D4840B002B35DD /* rsa_public_key.pem */,
+				35C7535221D7C6AE00EFD4A6 /* rsa_private_key.pem */,
+			);
+			path = RSA;
 			sourceTree = "<group>";
 		};
 		35D8B0BA21D079640050AD84 /* View */ = {
@@ -438,6 +449,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C7535321D7C6AE00EFD4A6 /* rsa_private_key.pem in Resources */,
 				35536B1B21C9E3B000AEB7D5 /* LaunchScreen.storyboard in Resources */,
 				35536B1821C9E3B000AEB7D5 /* Assets.xcassets in Resources */,
 				3516BE0121D4840B002B35DD /* rsa_public_key.pem in Resources */,

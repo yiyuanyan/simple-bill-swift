@@ -183,10 +183,10 @@ func isLogin()-> Bool {
 
 //RSA公钥解密
 func RSADecrypt(string:String) -> String{
-    let keyPath = NSHomeDirectory() + "/Documents/" + "rsa_private_key.pem";
+    let PEMPath = Bundle.main.path(forResource: "rsa_private_key", ofType: "pem");
     var plaintext:String!;
     
-    let url = URL(fileURLWithPath: keyPath);
+    let url = URL(fileURLWithPath: PEMPath!);
     do{
         //let dataKey = try Data(contentsOf: url);
         let str = try String(contentsOf: url);
