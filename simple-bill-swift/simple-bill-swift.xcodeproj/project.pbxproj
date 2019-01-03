@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3516BE0121D4840B002B35DD /* rsa_public_key.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3516BE0021D4840B002B35DD /* rsa_public_key.pem */; };
+		35276E9321DC5C4100C7A7D2 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276E9221DC5C4100C7A7D2 /* NetworkTools.swift */; };
+		35276E9521DCA26A00C7A7D2 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35276E9421DCA26A00C7A7D2 /* MD5.swift */; };
 		354D99B221CCC91D000C04D7 /* AppInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99B121CCC91D000C04D7 /* AppInformation.swift */; };
 		354D99C721CCE68E000C04D7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99C621CCE68E000C04D7 /* BaseViewController.swift */; };
 		354D99C921CCE6AB000C04D7 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354D99C821CCE6AB000C04D7 /* BaseNavigationController.swift */; };
@@ -56,6 +58,8 @@
 		0553479EE484375181357744 /* Pods-simple-bill-swiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swiftTests/Pods-simple-bill-swiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		0D6993D084C87BC3853AE435 /* Pods-simple-bill-swiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simple-bill-swiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simple-bill-swiftTests/Pods-simple-bill-swiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3516BE0021D4840B002B35DD /* rsa_public_key.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rsa_public_key.pem; sourceTree = "<group>"; };
+		35276E9221DC5C4100C7A7D2 /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		35276E9421DCA26A00C7A7D2 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		354D99B121CCC91D000C04D7 /* AppInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformation.swift; sourceTree = "<group>"; };
 		354D99C621CCE68E000C04D7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		354D99C821CCE6AB000C04D7 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				354D99C821CCE6AB000C04D7 /* BaseNavigationController.swift */,
 				35A3C5E121CE13C200BCAA04 /* BaseTabBarViewController.swift */,
 				35E6DC2E21D21A88007082FE /* Config.swift */,
+				35276E9221DC5C4100C7A7D2 /* NetworkTools.swift */,
+				35276E9421DCA26A00C7A7D2 /* MD5.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35A3C5E021CE11F800BCAA04 /* LoginViewController.swift in Sources */,
+				35276E9321DC5C4100C7A7D2 /* NetworkTools.swift in Sources */,
 				354D99C721CCE68E000C04D7 /* BaseViewController.swift in Sources */,
 				35A3C5DA21CE0EA800BCAA04 /* DiscoveredViewController.swift in Sources */,
 				354D99C921CCE6AB000C04D7 /* BaseNavigationController.swift in Sources */,
@@ -602,6 +609,7 @@
 				35D8B0BF21D079850050AD84 /* LoginModel.swift in Sources */,
 				35A3C5D621CE0E9100BCAA04 /* ChartViewController.swift in Sources */,
 				35940F5921CE632B005B1D23 /* BaseTopView.swift in Sources */,
+				35276E9521DCA26A00C7A7D2 /* MD5.swift in Sources */,
 				35E6DC2F21D21A88007082FE /* Config.swift in Sources */,
 				35A3C5D421CE0E7F00BCAA04 /* AccountsViewController.swift in Sources */,
 				35536B1121C9E3AE00AEB7D5 /* AppDelegate.swift in Sources */,

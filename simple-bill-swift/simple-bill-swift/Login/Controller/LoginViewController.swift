@@ -29,48 +29,33 @@ class LoginViewController: UIViewController {
             if((self.loginView.pwdTextField.text?.count)! < 6){
                 KRProgressHUD.set(style: .black).showMessage("密码必须大于6位");
             }
-            self.httpTool();
+            self.singIn();
+            //self.httpTool();
         }
     }
-    func httpTool(){
-        
-        //let url = LOGIN_PATH + self.loginView.phoneTextField.text! + "/" + self.loginView.pwdTextField.text!;
-        let url = LOGIN_PATH + "18600562546" + "/" + "111111";
-        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseString { (response) in
-            
-            if response.result.isSuccess {
-                
-                if let RSAString = response.result.value {
-                    //进行RSA解密.解密后是json字符串
-                    let jsonString = RSADecrypt(string: RSAString);
-                    if(!IsStrEmpty(str: jsonString)){
-                        /// json转model
-                        /// 写法一：responseModel.deserialize(from: jsonString)
-                        let model = LoginModel.deserialize(from: jsonString)
-                        if(model?.status == 1){
-                            self.sysUserDefault(model: model!);
-                        }else{
-                            KRProgressHUD.showMessage((model?.msg)!);
-                        }
-                    }else{
-                        KRProgressHUD.showMessage("数据错误");
-                    }
-                    
-                }
+    func singIn(){
+        NetworkTools.share(met: .get, baseUrl: BASE_URL, action: "login", header: true, params: "18600562546/111111", success: { (json) in
+            /// json转model
+            /// 写法一：responseModel.deserialize(from: jsonString)
+            let model = LoginModel.deserialize(from: json)
+            if(model?.status == 1){
+                self.sysUserDefault(model: model!);
+            }else{
+                KRProgressHUD.showMessage((model?.msg)!);
             }
-        }
-
-        
+        }) { (error) in
+            
+        };
     }
     
     func sysUserDefault(model:LoginModel) -> Void {
         let defaultStand = UserDefaults.standard;
-        defaultStand.set(model.data!["u_id"], forKey: UserDefaultKeys.AccountInfo().uid);
-        defaultStand.set(model.data!["user_phone"], forKey: UserDefaultKeys.AccountInfo().userPhone);
-        defaultStand.set(model.data!["user_pwd"], forKey: UserDefaultKeys.AccountInfo().userPwd);
-        defaultStand.set(model.data!["user_nickname"], forKey: UserDefaultKeys.AccountInfo().userNickName);
-        defaultStand.set(model.data!["user_token"], forKey: UserDefaultKeys.LoginInfo().userToken);
-        defaultStand.set(model.data!["token_time_out"], forKey: UserDefaultKeys.LoginInfo().userTokenTimeOut);
+        defaultStand.set(model.data!["u_id"]!, forKey: UserDefaultKeys.AccountInfo().uid);
+        defaultStand.set(model.data!["user_phone"]!, forKey: UserDefaultKeys.AccountInfo().userPhone);
+        defaultStand.set(model.data!["user_pwd"]!, forKey: UserDefaultKeys.AccountInfo().userPwd);
+        defaultStand.set(model.data!["user_nickname"]!, forKey: UserDefaultKeys.AccountInfo().userNickName);
+        defaultStand.set(model.data!["user_token"]!, forKey: UserDefaultKeys.LoginInfo().userToken);
+        defaultStand.set(model.data!["token_time_out"]!, forKey: UserDefaultKeys.LoginInfo().userTokenTimeOut);
         //self.view.window?.rootViewController = DetailedViewController();
         self.present(DetailedViewController(), animated: true, completion: nil);
         

@@ -27,7 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = UICOLOR_FROM_HEX(hex: 0xfefefe);
         let login = LoginViewController();
         let tab = BaseTabBarViewController();
-        self.window?.rootViewController = login;
+        let token = (UserDefaults.standard.string(forKey: UserDefaultKeys.LoginInfo().userToken) != nil) ? UserDefaults.standard.string(forKey: UserDefaultKeys.LoginInfo().userToken)! : ""
+        let userPhone = (UserDefaults.standard.string(forKey: UserDefaultKeys.AccountInfo().userPhone) != nil) ? UserDefaults.standard.string(forKey: UserDefaultKeys.AccountInfo().userPhone)! : ""
+        let userPwd = (UserDefaults.standard.string(forKey: UserDefaultKeys.AccountInfo().userPwd) != nil) ? UserDefaults.standard.string(forKey: UserDefaultKeys.AccountInfo().userPwd)! : ""
+        if(!IsStrEmpty(str: token) && !IsStrEmpty(str: userPhone) && !IsStrEmpty(str: userPwd)){
+            self.window?.rootViewController = tab;
+        }else{
+            self.window?.rootViewController = login;
+        }
+        
         
         
         

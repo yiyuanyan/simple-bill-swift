@@ -29,7 +29,8 @@ let UPDATE_TOKEN="http://yiyuanyan.eicp.net:81/token/"
 let BASE_URL="http://yiyuanyan.eicp.net:81/"
 //DETAILED Url
 let DETAILET_URL = BASE_URL + "detailed/"
-
+//SINGKEY
+let SINGKEY = "yiyuanyan.eicp.net";
 
 func IsStrEmpty(str:String) -> Bool {
     
