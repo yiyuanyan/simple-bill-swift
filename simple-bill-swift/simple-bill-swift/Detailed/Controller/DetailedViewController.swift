@@ -9,16 +9,29 @@
 import UIKit
 
 class DetailedViewController: BaseViewController {
-
+    let detailedTopView = DetailedTopView();
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.topView.yearLabel.text = "2018年";
+        initDetailedTopView();
+       
+        //self.detailedTopView.yearLabel.text = "2018年";
         //self.topView.monthLabel.text = "12月";
         
         // Do any additional setup after loading the view.
     }
     
-
+    func initDetailedTopView() {
+        self.view.addSubview(self.detailedTopView)
+//        self.detailedTopView.yearLabel.text = "2018年";
+//        self.detailedTopView.monthLabel.text = "12月";
+        self.detailedTopView.snp.makeConstraints { (make) in
+            make.top.right.left.bottom.equalTo(self.topView).offset(0);
+        }
+        let dic = NSMutableDictionary.init();
+        dic["year"] = "2018年";
+        dic["month"] = "12月";
+        self.detailedTopView.setValuesForInfo(dic: dic);
+    }
     /*
     // MARK: - Navigation
 
